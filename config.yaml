@@ -1,0 +1,21 @@
+# SQLite Query Engine Configuration
+
+llm:
+  provider: "anthropic"  # anthropic | openai | ollama
+  model: "claude-3-5-sonnet-20241022"
+  temperature: 0.0  # Deterministic for SQL generation
+  max_tokens: 2000
+
+safety:
+  read_only: true  # Block INSERT/UPDATE/DELETE by default
+  query_timeout: 30  # Seconds
+  max_results: 1000  # Limit result set size
+  max_retries: 3  # Retry on SQL error
+
+output:
+  format: "table"  # table | csv | json | markdown
+  show_sql: true  # Display generated SQL to user
+
+knowledge:
+  directory: "knowledge"
+  auto_load: true  # Automatically load relevant knowledge files
